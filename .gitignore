@@ -1,0 +1,4 @@
+main
+slist.o
+util.o
+.vscode
