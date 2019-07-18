@@ -23,10 +23,17 @@ int slist_vacia(SList slist);
 // Recibe una lista y un puntero a un dato,
 // Lo agrega al inicio,
 // Devuelve la lista.
-SList slist_agregar_inicio(SList slist, char* dato);
+SList slist_agregar_inicio(SList slist, void* dato);
 
-SList slist_agregar_final(SList slist, char* dato);
+// slist_agregar_final: SList void* -> SList
+// Recibe una lista y un puntero a un dato,
+// Lo agraga al final,
+// Devuelve la lista.
+SList slist_agregar_final(SList slist, void* dato);
 
+// slist_imprimir: SList -> void
+// Recibe una lista,
+// La imprime.
 void slist_imprimir(SList slist);
 
 // slist_destruir: Slist -> void
@@ -39,6 +46,14 @@ void slist_destruir(SList slist);
 // Devuelve su longitud.
 int slist_longitud(SList slist);
 
+// ciudad_a_indice: SList char* -> int
+// Recibe una Slist con ciudades y un ciudad.
+// Devuelve el indice que tiene la ciudad en la SList
 int ciudad_a_indice(SList slist, char* ciudad);
+
+// indice_a_ciudad: SList int -> char*
+// Recibe una SList con ciudades y un indice (i).
+// Devuelve la ciudad que se encuentra en la posicion i-esima de la SList
+char* indice_a_ciudad(SList lista, int i);
 
 #endif  // __SLIST_H__

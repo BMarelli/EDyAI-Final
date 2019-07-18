@@ -10,8 +10,10 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
 
   char buffer[100];
   int nCiudades = 0, leyendoCostos = 0;
-
   fscanf(_archivo, "%s", buffer);
+  
+  // fgetc(_archivo);
+
   while (!leyendoCostos) {
     fscanf(_archivo, "%s", buffer);
 
@@ -33,6 +35,8 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
   int costo;
   matriz->matriz = matriz_crear(nCiudades);
   matriz->n = nCiudades;
+  matriz->visitados = calloc(nCiudades, sizeof(int));
+  matriz->visitados[0] = 1;
 
   while (fscanf(_archivo, "%[^,],%[^,],%d\r\n", buffer, buffer2, &costo) !=
          EOF) {
@@ -42,8 +46,8 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
     int i = ciudad_a_indice(listaCiudades, ciudad1);
     int j = ciudad_a_indice(listaCiudades, ciudad2);
 
-    matriz->matriz[indice(matriz->n, i, j)] = costo;
-    matriz->matriz[indice(matriz->n, j, i)] = costo;
+    matriz->matriz[(matriz->n * i) + j] = costo;
+    matriz->matriz[(matriz->n * j) + i] = costo;
 
     free(ciudad1);
     free(ciudad2);
@@ -52,10 +56,31 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
   return listaCiudades;
 }
 
+int escribir_archivo(char* archivo, int* minimo, SList lista,
+                     MatrizCostos matriz) {
+  FILE* _archivo = fopen(archivo, "w");
+
+  if (_archivo == NULL) return 0;
+
+  int i = 1, nCiudades = matriz->n;
+  fprintf(_archivo, "Costo: %d\n", minimo[nCiudades]);
+  do {
+    char* ciuda1 = indice_a_ciudad(lista, minimo[i - 1]);
+    char* ciuda2 = indice_a_ciudad(lista, minimo[i]);
+    int costo = matriz->matriz[(nCiudades * minimo[i - 1]) + minimo[i]];
+    fprintf(_archivo, "%s,%s,%d\n", ciuda1, ciuda2, costo);
+    i++;
+  } while (i < nCiudades);
+
+  fclose(_archivo);
+  return 1;
+}
+
 int indice(int n, int i, int j) { return ((i * n) + j); }
 
 void matrizcostos_destruir(MatrizCostos matriz) {
   free(matriz->matriz);
+  free(matriz->visitados);
   free(matriz);
 }
 
@@ -75,7 +100,6 @@ char* copiar_cadena(char* cadena) {
 }
 
 int* matriz_crear(int n) {
-  int* matriz = malloc(sizeof(int) * (n * n));
-  for (int i = 0; i < (n * n); i++) matriz[i] = 0;
+  int* matriz = calloc((n * n), sizeof(int));
   return matriz;
 }

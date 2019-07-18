@@ -8,7 +8,7 @@ SList slist_crear() { return NULL; }
 
 int slist_vacia(SList slist) { return slist == NULL; }
 
-SList slist_agregar_inicio(SList slist, char* dato) {
+SList slist_agregar_inicio(SList slist, void* dato) {
   SNodo* nuevoNodo = malloc(sizeof(struct _SNodo));
   nuevoNodo->dato = dato;
   nuevoNodo->sig = slist;
@@ -16,7 +16,7 @@ SList slist_agregar_inicio(SList slist, char* dato) {
   return nuevoNodo;
 }
 
-SList slist_agregar_final(SList slist, char* dato) {
+SList slist_agregar_final(SList slist, void* dato) {
   SNodo* nuevoNodo = malloc(sizeof(struct _SNodo));
   nuevoNodo->dato = dato;
   nuevoNodo->sig = NULL;
@@ -33,7 +33,7 @@ SList slist_agregar_final(SList slist, char* dato) {
 void slist_imprimir(SList slist) {
   if (!slist_vacia(slist)) {
     for (SNodo* nodo = slist; nodo != NULL; nodo = nodo->sig) {
-      printf("%s\n", nodo->dato);
+      printf("%s\n", (char*)nodo->dato);
     }
   }
 }
@@ -65,4 +65,13 @@ int ciudad_a_indice(SList slist, char* ciudad) {
   for (; nodo != NULL && strcmp(ciudad, nodo->dato); i++, nodo = nodo->sig);
 
   return i;
+}
+
+char* indice_a_ciudad(SList lista, int i) {
+  int indice = 0;
+  SNodo* nodo = lista;
+
+  for (; nodo != NULL && indice != i; indice++, nodo = nodo->sig);
+
+  return nodo->dato;
 }

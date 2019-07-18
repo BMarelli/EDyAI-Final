@@ -2,3 +2,6 @@ main
 slist.o
 util.o
 .vscode
+salida.txt
+mapa.txt
+mapa1.txt
