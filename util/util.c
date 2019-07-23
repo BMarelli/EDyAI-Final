@@ -59,15 +59,16 @@ int escribir_archivo(char* archivo, int* minimo, SList lista,
 
   if (_archivo == NULL) return 0;
 
-  int i = 1, nCiudades = matriz->n;
+  int nCiudades = matriz->n;
   fprintf(_archivo, "Costo: %d\n", minimo[nCiudades]);
-  do {
-    char* ciuda1 = indice_a_ciudad(lista, minimo[i - 1]);
-    char* ciuda2 = indice_a_ciudad(lista, minimo[i]);
-    int costo = matriz->matriz[(nCiudades * minimo[i - 1]) + minimo[i]];
-    fprintf(_archivo, "%s,%s,%d\n", ciuda1, ciuda2, costo);
-    i++;
-  } while (i < nCiudades);
+
+  for (int i = 0; i < nCiudades; i++) {
+    char* ciudad1 = indice_a_ciudad(lista, minimo[(i % nCiudades)]);
+    char* ciudad2 = indice_a_ciudad(lista, minimo[((i + 1) % nCiudades)]);
+    int costo = matriz->matriz[(nCiudades * minimo[i % nCiudades]) +
+                               minimo[(i + 1) % nCiudades]];
+    fprintf(_archivo, "%s,%s,%d\n", ciudad1, ciudad2, costo);
+  }
 
   fclose(_archivo);
   return 1;

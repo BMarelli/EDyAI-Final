@@ -53,21 +53,21 @@ int* resolver_mapa(int* actual, int* minimo, MatrizCostos matriz) {
   for (int i = 1; i < n - 1; i++) {
     int costo = matriz->matriz[i];
     if (costo) {
+      actual[1] = i;
+      matriz->visitados[i] = 1;
       for (int j = i + 1; j < n; j++) {
         int _costo = matriz->matriz[(n * j)];
         if (_costo) {
-          actual[1] = i;
           actual[n - 1] = j;
           actual[n] = (costo + _costo);
-          matriz->visitados[i] = 1;
           matriz->visitados[j] = 1;
           obtener_camino(2, actual, minimo, matriz);
           matriz->visitados[j] = 0;
           actual[n] -= _costo;
         }
       }
-    actual[n] -= costo;
-    matriz->visitados[i] = 0;
+      actual[n] -= costo;
+      matriz->visitados[i] = 0;
     }
   }
   return minimo;
@@ -79,7 +79,7 @@ int main(int argc, char* argv[]) {
     printf("MODO DE USO: %s [entrada.txt] [salida.txt]\n", argv[0]);
     return 1;
   }
-// Para medir el tiempo que se tarda en encontrar el camino
+  // Para medir el tiempo que se tarda en encontrar el camino
   __clock_t start, end;
   double timer;
 
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
   minimo = resolver_mapa(actual, minimo, matrizCostos);
   end = clock();
   timer = ((double)(end - start)) / CLOCKS_PER_SEC;
-  printf(_GREEN_"Se ha encontrado un camino, en: %fs\n"_RESET_, timer);
+  printf(_GREEN_ "Se ha encontrado un camino, en: %fs\n"_RESET_, timer);
 
   if (!escribir_archivo(argv[2], minimo, ciudades, matrizCostos)) {
     printf(_RED_ "Se profujo un error al escribir el archivo: %s\n", argv[2]);

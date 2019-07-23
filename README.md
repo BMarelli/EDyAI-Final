@@ -58,7 +58,7 @@ El archivo [entrada.txt] debe tener el siguiente formato:
 ```txt
 Ciudades
 ciudad_1, ciudad_2, ..., ciudad_n
-Cosotos
+Costos
 ciudad_1,ciudad_2,costo_1
 ciudad_1,ciudad_3,costo_2
 ...
