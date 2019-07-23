@@ -7,15 +7,15 @@ typedef struct _MatrizCostos {
   int* visitados;
 } * MatrizCostos;
 ```
-- Primero utilizo un solo arrlego de n*n, donde n es la cantidad de ciudades, para disminuir el llamado de la funcion ```calloc()```. Luego para poder acceder a la posicion ```[i][j]``` de la matriz utilizamos la ecuacion ```[(n * i) + j]```.
-Decidi utilizar una matriz simetrica para hacer la busqueda dentro de la matriz mas rapida, ya sabiendo que ocupa mas memoria que una matriz triangular superior.
-- n representa la cantidad de ciudades
+- Primero utilizo un solo arrlego de n*n, donde n es la cantidad de ciudades, para disminuir el llamado de la función ```calloc()```. Luego para poder acceder a la posición ```[i][j]``` de la matriz utilizamos la ecuación ```[(n * i) + j]```.
+Decidí utilizar una matriz simetrica para hacer la busqueda dentro de la matriz más rapida, ya sabiendo que ocupa mas memoria que una matriz triangular superior.
+- n representa la cantidad de ciudades.
 - Por ultimo, utilizo un arreglo de n enteros, que usamos al momento de de buscar el camino de menor costo. Este arreglo es de 0 y 1. Si queremos ver si visitamos la ciudad k, usamos ```visitados[i]``` y si es 1, es que fue visitado, y 0 en el caso contrario.
 
-### Resolucion de Problema
-Decidi resolver este problema usando fuerza bruta, con algunas optimizaciones.
-La primera optimizacion fue fijar un orden al camino. Como podemos ver en la funcion ```resolver_mapa()```, lo que hago es fijar la primera ciudad que voy a visitar y tambien fijo la ultima ciudad que voy a visitar, realizando todas las permutuaciones posibles. De esta forma, al fijar un orden, reducimos la cantidad de llamadas a la funcion ```obtener_camino()```.
-Ya como fijamos la primera funcion, lo que hago es llamar la funcion ```obtener_camino()``` con una profundidad $2$
+### Resolución de Problema
+Decidí resolver este problema usando fuerza bruta, con algunas optimizaciónes.
+La primera optimización fue fijar un orden al camino. Como podemos ver en la función ```resolver_mapa()```, lo que hago es fijar la primera ciudad que voy a visitar y tambien fijo la ultima ciudad que voy a visitar, realizando todas las permutuaciones posibles. De esta forma, al fijar un orden, reducimos la cantidad de llamadas a la función ```obtener_camino()```.
+Ya como fijamos la primera función, lo que hago es llamar la función ```obtener_camino()``` con una profundidad $2$.
 
 ###### Ejemplo:
 ![img1](img/img1.jpg)
@@ -47,7 +47,7 @@ El entero ```i``` representa la ciudad que visitamos primero y el entero ```j```
 Luego nos queda de la siguente manera:
 ![img2](img/img2.jpg)
 
-La segunda optimizacion es, al momento de recorrer un camino, si el ```costo_actual < costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
+La segunda optimización es, al momento de recorrer un camino, si el ```costo_actual < costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
 
 <div style="page-break-after: always;"></div>
 
