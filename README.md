@@ -47,9 +47,7 @@ El entero ```i``` representa la ciudad que visitamos primero y el entero ```j```
 Luego nos queda de la siguente manera:
 ![img2](img/img2.jpg)
 
-La segunda optimización es, al momento de recorrer un camino, si el ```costo_actual < costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
-
-<div style="page-break-after: always;"></div>
+La segunda optimización es, al momento de recorrer un camino, si el ```costo_actual > costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
 
 ### MODO DE USO
 Para compilar el programa utilizamos un Makefile:
