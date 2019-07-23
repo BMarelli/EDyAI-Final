@@ -26,8 +26,7 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
       leyendoCostos = 1;
   }
 
-  fgetc(_archivo);
-  fgetc(_archivo);
+  if (fgetc(_archivo) == '\r') fgetc(_archivo);
 
   char buffer2[100];
   int costo;
