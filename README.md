@@ -62,7 +62,7 @@ Cosotos
 ciudad_1,ciudad_2,costo_1
 ciudad_1,ciudad_3,costo_2
 ...
-ciudad_i,ciudad_k,costo_s (donde i,k <= n && i != k) (los costos_ < 0)
+ciudad_i,ciudad_k,costo_s (donde i,k <= n && i != k) (los costo_ < 0)
 ```
 Luego de obtener el costo mínimo, se crea o edita el archivo [salida.txt]
 El archivo [salida.txt] va a tener el camino en el siguiente formato:
