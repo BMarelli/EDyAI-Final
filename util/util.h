@@ -16,9 +16,9 @@
 // Si quiero ver si la ciudad_i fue visitadad, se pueded ver usando
 // visitados[ciudad_i] y si es 0 no fue visitada y 1 si lo fue
 typedef struct _MatrizCostos {
+  int n;
   int* matriz;
   int* visitados;
-  int n;
 } * MatrizCostos;
 
 // parsear_archivo: char* SList MatrizCostos -> SList

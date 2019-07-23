@@ -5,30 +5,6 @@
 #include "slist/slist.h"
 #include "util/util.h"
 
-// Para compilar el programa utilizamos un Makefile:
-// $ make
-
-// MODO DE USO:
-// $ ./main [entrada.txt] [salida.txt]
-
-// Obtiene el camino con el menor costo del para en [entrada.txt]
-// El archivo [entrada.txt] debe tener el siguiente formato:
-//    Ciudades
-//    ciudad_1, ciudad_2, ..., ciudad_n
-//    Cosotos
-//    ciudad_1,ciudad_2,costo_1
-//    ciudad_1,ciudad_3,costo_2
-//    ...
-//    ciudad_i,ciudad_k,costo_s (donde i,k <= n && i != k) (los costos_ < 0)
-
-// Luego de obtener el costo minimo, se crea o edita el archivo [salida.txt]
-// El archivo [salida.txt] va a tener el camino en el siguiente formato:
-//    Costo: costo_minimo
-//    ciudad_1,ciudad_2,costo_1
-//    ciudad_2,ciudad_i,costo_s
-//    ...
-//    ciudad_k,ciudad_1,costo_r
-
 // obtener_camino: int int* int* MatrizCostos -> void
 // Recibe un entero que representa el nivel, dos arreglos de enteros que
 // representan caminos (uno el actual y el otro el minimo), una MatrizCostos.
