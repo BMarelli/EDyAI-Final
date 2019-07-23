@@ -11,8 +11,7 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz) {
   char buffer[100];
   int nCiudades = 0, leyendoCostos = 0;
   fscanf(_archivo, "%s", buffer);
-  
-  // fgetc(_archivo);
+  fgetc(_archivo);
 
   while (!leyendoCostos) {
     fscanf(_archivo, "%s", buffer);
