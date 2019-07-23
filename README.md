@@ -45,7 +45,7 @@ for (int i = 1; i < n - 1; i++) {
 ```
 El entero ```i``` representa la ciudad que visitamos primero y el entero ```j``` representa la ultima ciudad que vamos a visitar.
 Luego nos queda de la siguente manera:
-![img2](img\img2.jpg)
+![img2](img/img2.jpg)
 
 La segunda optimizacion es, al momento de recorrer un camino, si el ```costo_actual < costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
 
