@@ -54,7 +54,7 @@ Para compilar el programa utilizamos un Makefile:
 make
 ./main [entrada.txt] [salida.txt]
 ```
-El archivo [entrada.txt] debe tener el siguiente formato:
+El archivo [entrada.txt] debe usar CRLF y tener el siguiente formato:
 ```txt
 Ciudades
 ciudad_1, ciudad_2, ..., ciudad_n

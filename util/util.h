@@ -27,8 +27,6 @@ typedef struct _MatrizCostos {
 // luego completa la matriz simetrica de la MatrizCostos con la informacion del
 // archivo.
 // Devuelve la SList con las ciudades
-// ACLARACION: En caso de tener problemas con la lectura del archivo, para
-// arreglarlo se tiene que descomentar los fgetc (por los "\r")
 SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz);
 
 // escribir_archivo: char* int* SList -> int
