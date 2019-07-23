@@ -18,7 +18,7 @@ La primera optimizacion fue fijar un orden al camino. Como podemos ver en la fun
 Ya como fijamos la primera funcion, lo que hago es llamar la funcion ```obtener_camino()``` con una profundidad $2$
 
 ###### Ejemplo:
-![img1](img/IMG_20190722_232122.jpg)
+![img1](img/img1.jpg)
 Fijamos la primera y la ultima ciudad de la siguiente manera:
 Las ciudades las representamos con enteros: (a = 0; b = 1; c = 2; d = 3), (n = 4)
 ```c
@@ -45,7 +45,7 @@ for (int i = 1; i < n - 1; i++) {
 ```
 El entero ```i``` representa la ciudad que visitamos primero y el entero ```j``` representa la ultima ciudad que vamos a visitar.
 Luego nos queda de la siguente manera:
-![img2](img\IMG_20190722_232144__01.jpg)
+![img2](img\img2.jpg)
 
 La segunda optimizacion es, al momento de recorrer un camino, si el ```costo_actual < costo_minimo```, dejamos de recorrer ese camino y pasamos al siguiente.
 
