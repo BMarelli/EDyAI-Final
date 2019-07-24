@@ -64,6 +64,8 @@ ciudad_1,ciudad_3,costo_2
 ...
 ciudad_i,ciudad_k,costo_s (donde i,k <= n && i != k) (los costo_ < 0)
 ```
+El mapa que se encuentra en el archivo ```[entrada.txt]``` debe tener un mapa el cual tenga solucion, es decir, que sea cerrado.
+
 Luego de obtener el costo mínimo, se crea o edita el archivo [salida.txt]
 El archivo [salida.txt] va a tener el camino en el siguiente formato:
 ```txt
