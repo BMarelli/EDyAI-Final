@@ -74,8 +74,6 @@ int escribir_archivo(char* archivo, int* minimo, SList lista,
   return 1;
 }
 
-int indice(int n, int i, int j) { return ((i * n) + j); }
-
 void matrizcostos_destruir(MatrizCostos matriz) {
   free(matriz->matriz);
   free(matriz->visitados);

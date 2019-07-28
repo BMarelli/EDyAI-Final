@@ -39,8 +39,6 @@ SList parsear_archivo(char* archivo, SList listaCiudades, MatrizCostos matriz);
 int escribir_archivo(char* archivo, int* minimo, SList lista,
                      MatrizCostos matriz);
 
-int indice(int n, int i, int j);
-
 // matrizcostos_destruir: MatrizCostos -> void
 // Recibe una MatrizCostos.
 // Destruye la MatrizCostos.
