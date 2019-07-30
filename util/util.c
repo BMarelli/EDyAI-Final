@@ -83,7 +83,7 @@ void matrizcostos_destruir(MatrizCostos matriz) {
 void matrizcostos_imprimir(MatrizCostos matriz) {
   for (int i = 0; i < matriz->n; i++) {
     for (int j = 0; j < matriz->n; j++) {
-      printf("%d ", matriz->matriz[indice(matriz->n, i, j)]);
+      printf("%d ", matriz->matriz[(matriz->n * i) + j]);
     }
     printf("\n");
   }
