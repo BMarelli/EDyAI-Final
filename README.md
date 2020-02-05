@@ -19,7 +19,7 @@ Ya como fijamos la primera función, lo que hago es llamar la función ```obtene
 ###### Ejemplo:
 ![img1](img/img1.jpg)
 Fijamos la primera y la última ciudad de la siguiente manera:
-Las ciudades las representamos con n enteros, n la cantidad de ciudades (n = a): a = 0, b = 1, c = 2, d = 3.
+Las ciudades las representamos con n enteros, n la cantidad de ciudades (n = 4): a = 0, b = 1, c = 2, d = 3.
 ```c
 for (int i = 1; i < n - 1; i++) {
     int costo = matriz->matriz[i];
